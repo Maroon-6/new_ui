@@ -1,5 +1,6 @@
-# New Version of UI that gets data from database.
-HTML, CSS, Javascript.
+# Actual UI 
+- Gets data from database.
+- Written in HTML, CSS, Javascript.
 
 Home page layout is done with search bar.
 
