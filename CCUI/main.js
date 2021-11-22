@@ -15,17 +15,30 @@ async function loadIntoTable(url, table) {
 			}
 			
 			var jsonf = { headers: h, rows: r}
-			console.log(jsonf)
+			console.log("this is what it looks like now " + jsonf)
+			console.log(typeof(jsonf))
 			const { headers, rows } = jsonf
 
 			tableHead.innerHTML ="<tr></tr>";
 			tableBody.innerHTML ="";
 
 			// populate the headers
-			for (const headerText of headers){
+			for (var headerText of headers){
 				const headerElement = document.createElement("th");
-
+				// change the titles
 				headerElement.textContent = headerText;
+				if (headerText == "recipe_name"){
+					headerText = "Cocktail"
+					headerElement.textContent = headerText;
+				}
+				else if (headerText == "description"){
+					headerText = "Description"
+					headerElement.textContent = headerText;
+				}
+				else if (headerText == "contributor"){
+					headerText = "Contributor"
+					headerElement.textContent = headerText;
+				}
 				tableHead.querySelector("tr").appendChild(headerElement);
 			}
 
@@ -38,6 +51,7 @@ async function loadIntoTable(url, table) {
 
 					cellElement.textContent = cellText;
 					rowElement.appendChild(cellElement);
+					console.log("hello " + cellText)
 				}
 				tableBody.appendChild(rowElement);
 			}
