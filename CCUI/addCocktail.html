@@ -7,6 +7,43 @@
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
 	<link rel="stylesheet" type="text/css" href="CCUI.css">
 	<style>
+		#container{
+			width: 600px;
+			margin: 0px auto;
+		}
+		#form{
+			margin-top: 20px;
+			margin-bottom: 40px;
+		}
+
+		#recipe_name{
+			display: block;
+			margin-bottom: 10px;
+			width: 100%;
+		}
+		#description{
+			display: block;
+			margin-bottom: 10px;
+			width: 100%;
+			height: 80px;
+			border: 1px solid;
+			border-radius: 4px;
+			padding: 5px;
+		}
+		#ingredients{
+			display: block;
+			margin-bottom: 10px;
+			width: 100%;
+			height: 80px;
+			border: 1px solid;
+			border-radius: 4px;
+			padding: 5px;
+		}
+		#creator{
+			display: block;
+			margin-bottom: 10px;
+			width: 100%;
+		}
 
 		input[type=text], select {
 			width: 100%;
@@ -36,38 +73,29 @@
 			margin-left: auto;
 			margin-right: auto;
 		}
-		#form {
-			border-radius: 5px;
-			background-color: #f2f2f2;
-			padding: 30px;
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-			margin-top: 10%;
-			justify-content: center;
-		}
 	</style>
 </head>
 <body>
+	<div id="header">
 	<h1 id="title"><a href="./index.html" id="home" class= "font-effect-fire">The Cocktails</a></h1>
 	<ul id="list">
 		<li class="nav"><a href="./addCocktail.html" target="__blank">Add Cocktail</a></li>
 		<li class="nav"><a href="./inv.html" >Buy Ingredients</a></li>
 		<li class="nav"><a href="./orders.html">Your Order</a></li>
 	</ul>
-
-
-	<div id="form">
-		<form>
+</div>
+	<div id="container">
+		<div id="form">
 			<label> Recipe Name </label>
 			<input type="text" id="recipe_name" name="recipe_name" placeholder="Your recipe..">
 			<label> Description </label>
-			<input type="text" id="description" name="description" placeholder="Description..">
+			<textarea id="description" name="description" placeholder="Description.."></textarea>
 			<label>Ingredients <br> * put "," after each ingredient</label>
-			<input type="text" id="ingredients" name="ingredients" placeholder="Ingredients..">
+			<textarea type="text" id="ingredients" name="ingredients" placeholder="Ingredients.."></textarea>
 			<label for="fname">Creator</label>
 			<input type="text" id="creator" name="creator" placeholder="Your name..">
 			<input type="submit" value="Submit" id="sub">
+		</div>
 	</div>
 </body>
 </html>
