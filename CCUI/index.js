@@ -44,14 +44,32 @@ async function loadIntoTable(url, table) {
 
 			// populate the rows
 			for (const row of rows) {
+				console.log(row)
+				console.log(row[0])
 				const rowElement = document.createElement("tr");
 
-				for (const cellText of row) {
+				for (var cellText of row) {
 					const cellElement = document.createElement("td");
+					if(cellText == row[0]){
+						console.log("success")
+						ns=cellText.replace(/\s+/g, '')
+						console.log(cellText)
+						var url = String("https://daw6nkr6vd.execute-api.us-east-1.amazonaws.com/Dev/recipes" + "/" + ns) 
+						console.log(url)
+						var link = document.createElement("a");
+						link.setAttribute("href", url)
+						link.className = "links";
+						var linkText = document.createTextNode(cellText);
+						link.appendChild(linkText);
 
+						// Add the link to the previously created TableCell.
+						rowElement.appendChild(link);
+					} else {
 					cellElement.textContent = cellText;
 					rowElement.appendChild(cellElement);
 					console.log("hello " + cellText)
+				}
+
 				}
 				tableBody.appendChild(rowElement);
 			}

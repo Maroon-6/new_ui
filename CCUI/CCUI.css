@@ -67,6 +67,13 @@ a:visited{
 	font-style: italic;
 }
 
+a.links{
+	color: black;
+	text-align: center;
+	justify-content: center;
+	padding: 10px 20px;
+}
+
 
 .table{
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

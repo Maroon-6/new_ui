@@ -83,4 +83,4 @@ async function loadIntoTable(url, table) {
 				tableBody.appendChild(rowElement);
 			}
 		}
-		loadIntoTable("http://127.0.0.1:5000/inventories", document.querySelector("table"));
+		loadIntoTable("https://daw6nkr6vd.execute-api.us-east-1.amazonaws.com/Dev/inventories", document.querySelector("table"));

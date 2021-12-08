@@ -20,6 +20,7 @@
 			display: block;
 			margin-bottom: 10px;
 			width: 100%;
+			border: 1px solid;
 		}
 		#description{
 			display: block;
@@ -43,6 +44,7 @@
 			display: block;
 			margin-bottom: 10px;
 			width: 100%;
+			border: 1px solid;
 		}
 
 		input[type=text], select {
@@ -86,15 +88,16 @@
 </div>
 	<div id="container">
 		<div id="form">
-			<form>
+			<form action="https://daw6nkr6vd.execute-api.us-east-1.amazonaws.com/Dev/recipes" method="post">
 			<label> Recipe Name </label>
 			<input type="text" id="recipe_name" name="recipe_name" placeholder="Your recipe..">
 			<label> Description </label>
 			<textarea id="description" name="description" placeholder="Description.."></textarea>
-			<label>Ingredients <br> * put "," after each ingredient</label>
-			<textarea type="text" id="ingredients" name="ingredients" placeholder="Ingredients.."></textarea>
+			
 			<label for="fname">Creator</label>
 			<input type="text" id="creator" name="creator" placeholder="Your name..">
+			<label>Ingredients <br> * put "," after each ingredient</label>
+			<textarea type="text" id="ingredients" name="ingredients" placeholder="Ingredients.."></textarea>
 			<input type="submit" value="Submit" id="sub">
 		</form>
 		</div>
