@@ -1,8 +1,8 @@
 async function loadIntoTable(url, table) {
-			const tableHead = table.querySelector("thead");
-			const tableBody = table.querySelector("tbody");
-			const rsp = await fetch(url);
-			const data =await rsp.json();
+	const tableHead = table.querySelector("thead");
+	const tableBody = table.querySelector("tbody");
+	const rsp = await fetch(url);
+	const data =await rsp.json();
 
 			// make a fake json file out of the data
 			x = data[0]
@@ -18,6 +18,7 @@ async function loadIntoTable(url, table) {
 			console.log("this is what it looks like now " + jsonf)
 			console.log(typeof(jsonf))
 			const { headers, rows } = jsonf
+			headers.push("Details...")
 
 			tableHead.innerHTML ="<tr></tr>";
 			tableBody.innerHTML ="";
@@ -46,13 +47,20 @@ async function loadIntoTable(url, table) {
 			for (const row of rows) {
 				console.log(row)
 				console.log(row[0])
+				row.push("Recipe")
+
 				const rowElement = document.createElement("tr");
 
 				for (var cellText of row) {
 					const cellElement = document.createElement("td");
-					if(cellText == row[0]){
-						console.log("success")
-						ns=cellText.replace(/\s+/g, '')
+
+					// get name of the cocktail to append on url
+					if (cellText == row[0]){
+						var name = row[0]
+					}
+					
+					if (cellText == row[3]){
+						ns=name.replace(/\s+/g, '')
 						console.log(cellText)
 						var url = String("https://daw6nkr6vd.execute-api.us-east-1.amazonaws.com/Dev/recipes" + "/" + ns) 
 						console.log(url)
@@ -64,11 +72,12 @@ async function loadIntoTable(url, table) {
 
 						// Add the link to the previously created TableCell.
 						rowElement.appendChild(link);
-					} else {
-					cellElement.textContent = cellText;
-					rowElement.appendChild(cellElement);
-					console.log("hello " + cellText)
-				}
+					}
+					else{
+						cellElement.textContent = cellText;
+						rowElement.appendChild(cellElement);
+						console.log("hello " + cellText)
+					}
 
 				}
 				tableBody.appendChild(rowElement);
@@ -76,7 +85,7 @@ async function loadIntoTable(url, table) {
 		}
 		loadIntoTable("https://daw6nkr6vd.execute-api.us-east-1.amazonaws.com/Dev/recipes", document.querySelector("table"));
 
-function myFunction() {
+		function myFunction() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("search");
@@ -84,16 +93,20 @@ function myFunction() {
   table = document.getElementById("table");
   tr = table.getElementsByTagName("tr");
 
+
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
+  	console.log(tr)
+  	td = tr[i].getElementsByTagName("td")[0];
+  	console.log(td)
+  	if (td) {
+  		txtValue = td.textContent || td.innerText;
+  		console.log(txtValue)
+  		if (txtValue.toUpperCase().indexOf(filter) > -1) {
+  			tr[i].style.display = "";
+  		} else {
+  			tr[i].style.display = "none";
+  		}
+  	}
   }
 }

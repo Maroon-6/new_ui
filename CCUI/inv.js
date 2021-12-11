@@ -21,6 +21,7 @@ async function loadIntoTable(url, table) {
 
 			tableHead.innerHTML ="<tr></tr>";
 			tableBody.innerHTML ="";
+			headers.push("Buy")
 			console.log(headers)
 			// populate the headers
 			headers.splice(5,1)
@@ -56,7 +57,6 @@ async function loadIntoTable(url, table) {
 					headerText = "Price"
 					headerElement.textContent = headerText;
 				}
-
 				tableHead.querySelector("tr").appendChild(headerElement);
 			}
 			console.log("hello" + String(rows[1][4]))
@@ -67,7 +67,6 @@ async function loadIntoTable(url, table) {
 				console.log(val[4])
 				val.splice(5, 1)
 				console.log("hi" + val)
-				return val;
 			});
 			// populate the rows
 			for (const row of rows) {
@@ -80,6 +79,7 @@ async function loadIntoTable(url, table) {
 					rowElement.appendChild(cellElement);
 					console.log("hello " + cellText)
 				}
+				console.log()
 				tableBody.appendChild(rowElement);
 			}
 		}

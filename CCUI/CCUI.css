@@ -62,16 +62,20 @@ a{
 }
 
 a:visited{
-	color: white;
 	text-decoration: none;
 	font-style: italic;
 }
 
 a.links{
-	color: black;
+	color: grey;
 	text-align: center;
 	justify-content: center;
-	padding: 10px 20px;
+	padding: 8px 5px;
+	font-size: 14px;
+	border-style: solid;
+	border-radius: 30%;
+	border-color: black;
+	background-color: aliceblue;
 }
 
 
