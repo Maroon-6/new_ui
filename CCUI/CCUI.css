@@ -1,12 +1,11 @@
 *{
 	font-family: Avenir;
 	font-weight: lighter;
-	margin: 0;
-	padding: 0;
-	border: 0;
+	text-decoration: none;
 }
 
 #title{
+	top: 20px;
 	font-size: 45px; 
 	font-weight: bold;
 	text-align: center;
@@ -15,18 +14,33 @@
 	opacity: 0.75;
 	justify-content: center;
 	margin: 2px;
-	padding: 30px;
+	padding: 20px;
 	width: auto;
+	position: relative;
 }
 
-#list{
-	justify-content: center;
+.wrapper {
 	text-align: center;
-	float: both;
+}
+.wrapper ul {
+	display: inline-block;
+	/* For IE, the outcast */
+	zoom:1;
+	*display: inline;
+}
+.wrapper li {
+	float:left;
+	background-color:lightskyblue;
+	color: white;
+	font-size: 25px;
+	width: 300px;
+	border: 9px double white;
+	border-width: 8px;
+	padding: 15px;
+	margin: 20px;
 }
 
 .nav{
-	list-style: none;
 	float:left;
 	background-color:lightskyblue;
 	color: white;
@@ -55,41 +69,37 @@ li:hover{
 	}
 }
 
-a{
+.nav a{
 	color: white;
-	text-decoration: none;
 	display: block;
-}
-
-a:visited{
-	text-decoration: none;
-	font-style: italic;
+	position: relative;
+	justify-content: center;
 }
 
 a.links{
 	color: grey;
 	text-align: center;
 	justify-content: center;
-	padding: 8px 5px;
+	padding: 3px 5px;
 	font-size: 14px;
 	border-style: solid;
 	border-radius: 30%;
-	border-color: black;
+	border: black;
 	background-color: aliceblue;
+	text-align: center;
 }
 
-
+/* table stuff */
 .table{
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	border-collapse: collapse;
 	overflow: hidden;
 	font-weight: bold;
 	justify-content: center;
-	padding: 30px;
-	position: relative;
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
+	position: relative;
 }
 
 .table thead th{
@@ -110,10 +120,11 @@ a.links{
 	border-bottom: 2px solid #009578;
 }
 
+/* search bar stuff */
 #search{
 	background-image: url('./search.png'); /* Add a search icon to input */
 	background-repeat: no-repeat; /* Do not repeat the icon image */
-	background-size: 50px;
+	background-size: 40px;
 	width: 50%; /* Full-width */
 	font-size: 16px; /* Increase font-size */
 	padding: 12px 20px 12px 40px; /* Add some padding */
@@ -121,7 +132,10 @@ a.links{
 	margin-bottom: 30px; /* Add some space below the input */
 	margin-left: auto;
 	margin-right: auto;
+	position: relative;
+	
 }
+
 #bar{
 	justify-content: center;
 	text-align: center;

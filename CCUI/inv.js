@@ -81,8 +81,9 @@ async function loadIntoTable(url, table) {
 					const cellElement = document.createElement("td");
 					if (cellText == row[8]){
 						var link = document.createElement("a");
-						var url = "https://daw6nkr6vd.execute-api.us-east-1.amazonaws.com/Dev/orders"
+						var url = "./orders.html"
 						link.setAttribute("href", url)
+						link.setAttribute("target", "__blank")
 						link.className = "links";
 						var linkText = document.createTextNode(cellText);
 						link.appendChild(linkText);
