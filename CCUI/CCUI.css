@@ -89,6 +89,7 @@ a.links{
 	position: relative;
 	margin-right: auto;
 	margin-left: auto;
+	text-align: center;
 }
 
 .table thead th{

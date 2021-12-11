@@ -13,7 +13,7 @@ async function loadIntoTable(url, table) {
 		y = Object.values(data[i])
 		r.push(y)
 	}
-			
+	
 	var jsonf = { headers: h, rows: r}
 	console.log("this is what it looks like now " + jsonf)
 	console.log(typeof(jsonf))
@@ -21,6 +21,8 @@ async function loadIntoTable(url, table) {
 
 	tableHead.innerHTML ="<tr></tr>";
 	tableBody.innerHTML ="";
+
+	// TODO: Incorporate OAuth and remove user and address columns
 	for (var headerText of headers){
 		const headerElement = document.createElement("th");
 		
@@ -33,30 +35,37 @@ async function loadIntoTable(url, table) {
 			console.log("HI")
 		}
 		else if (headerText == "user_id"){
-			headerText = "ID"
-			tableHead.querySelector("tr").appendChild(headerElement);
+			headerText = "User ID"
+			console.log(headerText)
+			headerElement.textContent = headerText;
+			console.log(headerElement)
 			console.log("WHY")
 		}
 		else if (headerText == "address_id"){
-			headerText = "Address"
-			tableHead.querySelector("tr").appendChild(headerElement);
+			headerText = "Address ID"
+			headerElement.textContent = headerText;
 		}
 		else if (headerText == "total_price"){
 			headerText = "Total"
-			tableHead.querySelector("tr").appendChild(headerElement);
+			headerElement.textContent = headerText;
 		}
 		else if (headerText == "status"){
 			headerText = "Status"
-			tableHead.querySelector("tr").appendChild(headerElement);
+			headerElement.textContent = headerText;
 		}
 		tableHead.querySelector("tr").appendChild(headerElement);
 	}
+
 	// populate rows
 	for (const row of rows) {
 		const rowElement = document.createElement("tr");
 
 		for (var cellText of row) {
 			const cellElement = document.createElement("td");
+			// add currency for prices
+			if (cellText == row[3]) {
+				cellText = "$" + cellText
+			}
 			cellElement.textContent = cellText;
 			rowElement.appendChild(cellElement);
 			console.log("hello " + cellText)
