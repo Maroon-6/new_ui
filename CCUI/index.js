@@ -47,6 +47,7 @@ async function loadIntoTable(url, table) {
 			for (const row of rows) {
 				console.log(row)
 				console.log(row[0])
+				// new column
 				row.push("Recipe")
 
 				const rowElement = document.createElement("tr");
@@ -60,6 +61,7 @@ async function loadIntoTable(url, table) {
 					}
 					
 					if (cellText == row[3]){
+						// remove space from cocktail name
 						ns=name.replace(/\s+/g, '')
 						console.log(cellText)
 						var url = String("https://daw6nkr6vd.execute-api.us-east-1.amazonaws.com/Dev/recipes" + "/" + ns) 
