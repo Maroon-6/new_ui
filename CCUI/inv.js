@@ -21,7 +21,7 @@ async function loadIntoTable(url, table) {
 
 			tableHead.innerHTML ="<tr></tr>";
 			tableBody.innerHTML ="";
-			headers.push("Buy")
+			headers.push("Purchase?")
 			console.log(headers)
 			// populate the headers
 			headers.splice(5,1)
@@ -59,8 +59,10 @@ async function loadIntoTable(url, table) {
 				}
 				tableHead.querySelector("tr").appendChild(headerElement);
 			}
+
 			console.log("hello" + String(rows[1][4]))
 			console.log(rows)
+			// combine the amount and the unit of the ingredient to make it more legible
 			var x = rows.map(function(val) {
 				console.log(val[4])
 				val[4] = val[4]+val[5]
@@ -68,16 +70,31 @@ async function loadIntoTable(url, table) {
 				val.splice(5, 1)
 				console.log("hi" + val)
 			});
+
 			// populate the rows
 			for (const row of rows) {
+				// new column or rows
+				row.push("yes")
 				const rowElement = document.createElement("tr");
 
 				for (const cellText of row) {
 					const cellElement = document.createElement("td");
+					if (cellText == row[8]){
+						var link = document.createElement("a");
+						var url = "https://daw6nkr6vd.execute-api.us-east-1.amazonaws.com/Dev/orders"
+						link.setAttribute("href", url)
+						link.className = "links";
+						var linkText = document.createTextNode(cellText);
+						link.appendChild(linkText);
 
+						// Add the link to the previously created TableCell.
+						rowElement.appendChild(link);
+					}
+					else {
 					cellElement.textContent = cellText;
 					rowElement.appendChild(cellElement);
 					console.log("hello " + cellText)
+					}
 				}
 				console.log()
 				tableBody.appendChild(rowElement);
