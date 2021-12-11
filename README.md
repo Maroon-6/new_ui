@@ -4,8 +4,11 @@
 
 Home page layout is done with search bar.
 
+
 TODO:
-- Link items in table to respective cocktail pages
+- Autogenerate respective cocktail page
 - Allow users to go buy the items from the respective cocktail pages
 - Items being sold; once put in a cart they will append to the orders page
-- Make orders page (Content that users bought)
+- Alter database to allow POST to work on add cocktail
+- Deletion function
+- OAuth
