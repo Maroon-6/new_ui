@@ -19,6 +19,7 @@ async function loadIntoTable(url, table) {
 			console.log(typeof(jsonf))
 			const { headers, rows } = jsonf
 			headers.push("Details...")
+			// headers.push("Lowest Cost")
 
 			tableHead.innerHTML ="<tr></tr>";
 			tableBody.innerHTML ="";
@@ -47,12 +48,16 @@ async function loadIntoTable(url, table) {
 			for (const row of rows) {
 				console.log(row)
 				console.log(row[0])
-				// new column
+				// new columns
 				row.push("Recipe")
+
+				// TODO: push lowest price
+				// https://4gpvserm67.execute-api.us-east-1.amazonaws.com/default/lowest_price_ingredients_from_recipe?recipe_name=Cosmopolitan
 
 				const rowElement = document.createElement("tr");
 
 				for (var cellText of row) {
+					// add lowest price unit
 					const cellElement = document.createElement("td");
 
 					// get name of the cocktail to append on url
